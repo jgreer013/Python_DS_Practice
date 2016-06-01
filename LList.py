@@ -102,9 +102,15 @@ class LList(object):
             curr_node = tmp_node
         curr_node.next = prev_node
         self.head = curr_node
+
+    def iterate(self):
+        curr_node = self.head
+        while curr_node != None:
+            yield curr_node.val
+            curr_node = curr_node.next
             
             
-"""
+
 LL = LList()
 for x in range(4):
     LL.insert(Node(x))
@@ -118,9 +124,13 @@ LL.reverse()
 for x in range(LL.size):
     print LL.get(x)
 print LL.tail.next
-
+"""
 for x in range(LL.size):
     LL.delete(0)
 print LL.head, LL.tail
 """
+
+print "Generator Function:"
+for x in LL.iterate():
+    print x
 
